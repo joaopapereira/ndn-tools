@@ -7,7 +7,7 @@ compiler:
 before_install:
   - echo $LANG
   - echo $LC_ALL
-  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -qq  -y && sudo apt-get -qq -y install build-essential pkg-config libboost-all-dev libcrypto++-dev libsqlite3-dev; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -qq  -y && sudo apt-get -qq -y install build-essential pkg-config libboost1.48-all-dev libcrypto++-dev libsqlite3-dev; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install boost pkg-config && brew cleanup; fi
   - .jenkins.d/10-ndn-cxx.sh
 install: 
@@ -22,6 +22,6 @@ branches:
 
 os:
   - linux
-  # - osx
+  - osx
 
 osx_image: xcode61
