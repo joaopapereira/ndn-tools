@@ -9,16 +9,13 @@ before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -qq  -y && sudo apt-get -qq -y install build-essential pkg-config libboost1.48-all-dev libcrypto++-dev libsqlite3-dev; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install boost pkg-config && brew cleanup; fi
   - .jenkins.d/10-ndn-cxx.sh
-install: 
-  - .jenkins.d/20-build.sh
+install: true
 
+script: .jenkins.d/20-build.sh
 
 branches:
   only:
     - master
-
-
-
 os:
   - linux
   - osx
