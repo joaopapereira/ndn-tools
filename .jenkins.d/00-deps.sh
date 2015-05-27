@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+set -x
 
 JDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 source "$JDIR"/util.sh
