@@ -4,10 +4,9 @@ compiler:
   - gcc
 
 before_install:
-  - echo $LANG
-  - echo $LC_ALL
-  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -qq  -y && sudo apt-get -qq -y install build-essential pkg-config libboost1.48-all-dev libcrypto++-dev libsqlite3-dev; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install boost pkg-config && brew cleanup; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then export NODE_LABELS=´cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -d"=" -f2 | sed 's/ /-/g'´; fi
+  - echo $NODE_LABELS
+  - .jenkins.d/00-deps.sh
   - .jenkins.d/10-ndn-cxx.sh
 install: true
 
@@ -18,6 +17,3 @@ branches:
     - master
 os:
   - linux
-  - osx
-
-osx_image: xcode61
