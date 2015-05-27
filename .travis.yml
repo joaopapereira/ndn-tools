@@ -4,7 +4,7 @@ compiler:
   - gcc
 
 before_install:
-  - if [ $TRAVIS_OS_NAME == linux ]; then export NODE_LABELS=´cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -d"=" -f2 | sed 's/ /-/g'´; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then export NODE_LABELS=`cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -d"=" -f2 | sed 's/ /-/g'`; fi
   - echo $NODE_LABELS
   - .jenkins.d/00-deps.sh
   - .jenkins.d/10-ndn-cxx.sh
