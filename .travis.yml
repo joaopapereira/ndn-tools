@@ -5,14 +5,9 @@ sudo: true
 compiler:
   - gcc
 
-before_install:
-  - if [ $TRAVIS_OS_NAME == linux ]; then export NODE_LABELS=`lsb_release -d | awk '{printf "%s %s-%s",$2,$2,$3}'`; fi
-  - echo $NODE_LABELS
-  - .jenkins.d/00-deps.sh
-  - .jenkins.d/10-ndn-cxx.sh
 install: true
 
-script: .jenkins.d/20-build.sh
+script: ./.jenkins
 
 branches:
   only:
