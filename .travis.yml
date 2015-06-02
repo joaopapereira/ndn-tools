@@ -5,6 +5,9 @@ sudo: true
 compiler:
   - gcc
 
+before_install:
+  - if [ $TRAVIS_OS_NAME == linux ]; then export NODE_LABELS=`lsb_release -d | awk '{printf "%s %s-%s",$2,$2,$3}'`; fi
+
 install: true
 
 script: ./.jenkins
